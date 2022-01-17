@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Registration page</h3>
+    {% include 'utils/_flash_error.html' %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {% with form_errors=form.errors.username %}
+            {% include 'utils/_form_error.html' %}
+        {% endwith %}
+        <div>
+            {{ form.username.label() }}
+            {{ form.username() }}
+        </div>
+        {% with form_errors=form.errors.password %}
+            {% include 'utils/_form_error.html' %}
+        {% endwith %}
+        <div>
+            {{ form.password.label() }}
+            {{ form.password() }}
+        </div>
+        {% with form_errors=form.errors.confirm_password %}
+            {% include 'utils/_form_error.html' %}
+        {% endwith %}
+        <div>
+            {{ form.confirm_password.label() }}
+            {{ form.confirm_password() }}
+        </div>
+        {% with form_errors=form.errors.email %}
+            {% include 'utils/_form_error.html' %}
+        {% endwith %}
+        <div>
+            {{ form.email.label() }}
+            {{ form.email() }}
+        </div>
+        {% with form_errors=form.errors.first_name %}
+            {% include 'utils/_form_error.html' %}
+        {% endwith %}
+        <div>
+            {{ form.first_name.label() }}
+            {{ form.first_name() }}
+        </div>
+        {% with form_errors=form.errors.last_name %}
+            {% include 'utils/_form_error.html' %}
+        {% endwith %}
+        <div>
+            {{ form.last_name.label() }}
+            {{ form.last_name() }}
+        </div>
+        {{ form.submit() }}
+    </form>
+{% endblock %}
+

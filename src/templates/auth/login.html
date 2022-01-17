@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Login page</h3>
+    {% include 'utils/_flash_error.html' %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.username.label() }}
+            {{ form.username() }}
+        </div>
+        <div>
+            {{ form.password.label() }}
+            {{ form.password() }}
+        </div>
+        {{ form.submit() }}
+
+    </form>
+{% endblock %}
+
