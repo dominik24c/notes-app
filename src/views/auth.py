@@ -12,7 +12,7 @@ auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 @auth_bp.route('/login', methods=['POST', 'GET'])
 def login() -> str or Response:
     if current_user.is_authenticated:
-        return redirect(url_for('notes.index'))
+        return redirect(url_for('notes.list'))
 
     form = LoginForm()
 
@@ -21,7 +21,7 @@ def login() -> str or Response:
         if user:
             if user.verify(form.password.data):
                 login_user(user)
-                return redirect(url_for('notes.index'))
+                return redirect(url_for('notes.list'))
             else:
                 flash('Invalid credentials!', 'error')
         else:

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{{ note.title }}</h3>
+    <p>{{ note.description }}</p>
+    <a href="{{ url_for('notes.update',note_id=note.id) }}">Update</a>
+{% endblock %}

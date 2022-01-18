@@ -1,0 +1,25 @@
+<nav>
+    <ul>
+        <li>
+            <a href="{{ url_for('home.index') }}">Home</a>
+        </li>
+        {% if not current_user.is_authenticated %}
+            <li>
+                <a href="{{ url_for('auth.login') }}">Login</a>
+            </li>
+            <li>
+                <a href="{{ url_for('auth.register') }}">Register</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{{ url_for('notes.create') }}">Create note</a>
+            </li>
+            <li>
+                <a href="{{ url_for('notes.list') }}">List of notes</a>
+            </li>
+            <li>
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
