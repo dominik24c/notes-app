@@ -2,22 +2,22 @@
 
 {% block content %}
     <h3>Update note</h3>
-    <form action="" method="post" novalidate>
+    <form class="form" method="post">
         {{ form.hidden_tag() }}
-        <p>
-            {{ form.title.label }}<br>
-            {{ form.title() }}<br>
+        <div class="form-control">
+            {{ form.title.label }}
+            {{ form.title() }}
             {% for error in form.title.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <span style="color: red; margin: 10px">[{{ error }}]</span>
             {% endfor %}
-        </p>
-        <p>
-            {{ form.description.label }}<br>
-            {{ form.description() }}<br>
+        </div>
+        <div class="form-control">
+            {{ form.description.label }}
+            {{ form.description() }}
             {% for error in form.description.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <span style="color: red; margin: 10px">[{{ error }}]</span>
             {% endfor %}
-        </p>
-        {{ form.submit() }}
+        </div>
+        {{ form.submit(class='btn-primary') }}
     </form>
 {% endblock %}

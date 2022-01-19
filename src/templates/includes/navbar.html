@@ -1,23 +1,23 @@
-<nav>
+<nav id="navbar">
     <ul>
-        <li>
+        <li class="link">
             <a href="{{ url_for('home.index') }}">Home</a>
         </li>
         {% if not current_user.is_authenticated %}
-            <li>
+            <li class="link">
                 <a href="{{ url_for('auth.login') }}">Login</a>
             </li>
-            <li>
+            <li class="link">
                 <a href="{{ url_for('auth.register') }}">Register</a>
             </li>
         {% else %}
-            <li>
+            <li class="link">
                 <a href="{{ url_for('notes.create') }}">Create note</a>
             </li>
-            <li>
+            <li class="link">
                 <a href="{{ url_for('notes.list') }}">List of notes</a>
             </li>
-            <li>
+            <li class="link">
                 <a href="{{ url_for('auth.logout') }}">Logout</a>
             </li>
         {% endif %}

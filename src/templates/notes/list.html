@@ -3,10 +3,11 @@
 {% block content %}
 
     {% if  notes %}
-        <h3>Notes</h3>
+        <h3 class="title">Notes</h3>
+        <br/>
         {% for note in notes %}
             <div>
-                <a href="{{ url_for('notes.index',note_id=note.id) }}">{{ note.title }}</a>
+                <a class="btn-link" href="{{ url_for('notes.index',note_id=note.id) }}">{{ note.title }}</a>
             </div>
         {% endfor %}
     {% else %}
